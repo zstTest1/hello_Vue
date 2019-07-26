@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>快速入门</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<!--创建一个vue可以管理的div区域-->
+		<div id="app">
+			<ul>
+				<!--数组中:v代表元素,i代表索引-->
+				<li v-for="(v,i) in myArrays">{{v+'--'+i}}</li>
+			</ul>
+			<ul>
+				<!--对象中:i代表key,既对象的属性名-->
+				<li v-for="(v,i) in user">{{v+'--'+i}}</li>
+			</ul>
+			<table>
+				<tr v-for="u in people">
+					<td>{{u.name}}</td>
+					<td>{{u.age}}</td>
+				</tr>
+			</table>
+
+			<table><!--较少用-->
+				<tr v-for="u in people">
+					<td v-for="v in u">{{v}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>
+
+<script>
+	new Vue({
+		//挂载 ,和jquery中的选择器是一个意思
+		el: "#app",
+		data: {
+			//声名vue对象的数据变量
+			myArrays: ["aa", "bb", "cc", "dd"],
+			user: {
+				name: "rose",
+				age: 23
+			},
+			people: [{
+				name: "rose",
+				age: 23
+			}, {
+				name: "jack",
+				age: 20
+			}]
+		},
+		methods: {
+			//声明vue的方法
+
+		}
+	})
+</script>

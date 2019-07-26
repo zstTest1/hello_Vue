@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>快速入门</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<!--创建一个vue可以管理的div区域-->
+		<div id="app">
+			<input type="text" v-on:keydown="fun1();" />
+			<!--插值表达式-->
+			{{code}}
+		</div>
+	</body>
+
+</html>
+
+<script>
+	new Vue({
+		//挂载 ,和jquery中的选择器是一个意思
+		el: "#app",
+		data: {
+			//声名vue对象的数据变量
+			//message: "你瞅啥啊！"
+			code: 0
+		},
+		methods: {
+			//声明vue的方法
+			fun1: function() {
+				this.code = event.keyCode; // event.keyCode 监听键盘按下的值
+				// 0- 48   9-57
+				if(!(this.code >= 48 && this.code <= 57)) {
+					event.preventDefault();//阻断默认事件,下一步的code显示字就让你显示了
+				}
+			}
+
+		}
+	})
+</script>
